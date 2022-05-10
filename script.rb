@@ -12,4 +12,10 @@ class Board
     }
     @moves_left = true
   end
+
+  def display_grid
+    puts "  #{grid[1]} | #{grid[2]} | #{grid[3]} \n
+  #{grid[4]} | #{grid[5]} | #{grid[6]} \n
+  #{grid[7]} | #{grid[8]} | #{grid[9]}"
+  end
 end
