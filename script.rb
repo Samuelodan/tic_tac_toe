@@ -46,4 +46,8 @@ class Board
       o
     end
   end
+
+  def check_moves_left
+    grid.value?(:_) || @moves_left = false
+  end
 end
