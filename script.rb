@@ -51,3 +51,10 @@ class Board
     grid.value?(:_) || @moves_left = false
   end
 end
+
+# creates players for game
+class Players
+  def initialize
+    @symbol = nil
+  end
+end
