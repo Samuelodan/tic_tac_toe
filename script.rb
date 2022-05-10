@@ -54,6 +54,8 @@ end
 
 # creates players for game
 class Players
+  attr_accessor :symbol
+
   def initialize
     @symbol = nil
   end
