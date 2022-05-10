@@ -23,25 +23,25 @@ class Board
     x = :x
     o = :o
 
-    if grids[1] == x && grids[2] == x && grids[3] == x || # 123
-       grids[4] == x && grids[5] == x && grids[6] == x || # 456
-       grids[7] == x && grids[8] == x && grids[9] == x || # 789
-       grids[1] == x && grids[4] == x && grids[7] == x || # 147
-       grids[2] == x && grids[5] == x && grids[8] == x || # 258
-       grids[3] == x && grids[6] == x && grids[9] == x || # 369
-       grids[1] == x && grids[5] == x && grids[9] == x || # 159
-       grids[3] == x && grids[5] == x && grids[7] == x # 357
+    if grid[1] == x && grid[2] == x && grid[3] == x || # 123
+       grid[4] == x && grid[5] == x && grid[6] == x || # 456
+       grid[7] == x && grid[8] == x && grid[9] == x || # 789
+       grid[1] == x && grid[4] == x && grid[7] == x || # 147
+       grid[2] == x && grid[5] == x && grid[8] == x || # 258
+       grid[3] == x && grid[6] == x && grid[9] == x || # 369
+       grid[1] == x && grid[5] == x && grid[9] == x || # 159
+       grid[3] == x && grid[5] == x && grid[7] == x # 357
 
       x
 
-    elsif grids[1] == o && grids[2] == o && grids[3] == o || # 123
-          grids[4] == o && grids[5] == o && grids[6] == o || # 456
-          grids[7] == o && grids[8] == o && grids[9] == o || # 789
-          grids[1] == o && grids[4] == o && grids[7] == o || # 147
-          grids[2] == o && grids[5] == o && grids[8] == o || # 258
-          grids[3] == o && grids[6] == o && grids[9] == o || # 369
-          grids[1] == o && grids[5] == o && grids[9] == o || # 159
-          grids[3] == o && grids[5] == o && grids[7] == o # 357
+    elsif grid[1] == o && grid[2] == o && grid[3] == o || # 123
+          grid[4] == o && grid[5] == o && grid[6] == o || # 456
+          grid[7] == o && grid[8] == o && grid[9] == o || # 789
+          grid[1] == o && grid[4] == o && grid[7] == o || # 147
+          grid[2] == o && grid[5] == o && grid[8] == o || # 258
+          grid[3] == o && grid[6] == o && grid[9] == o || # 369
+          grid[1] == o && grid[5] == o && grid[9] == o || # 159
+          grid[3] == o && grid[5] == o && grid[7] == o # 357
 
       o
     end
