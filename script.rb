@@ -70,4 +70,9 @@ class Game
     @player1 = Players.new
     @player2 = Players.new
   end
+
+  def assign_sym
+    @player1.symbol = :x
+    @player2.symbol = :y
+  end
 end
