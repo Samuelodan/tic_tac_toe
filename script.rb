@@ -77,6 +77,11 @@ class Game
   end
 
   def make_move(player, position)
+    unless @board.grid[position] == :_
+      puts 'That position is already taken'
+      return false
+    end
     @board.grid[position] = player.symbol
+    true
   end
 end
