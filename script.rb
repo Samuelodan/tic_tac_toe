@@ -73,7 +73,7 @@ class Game
 
   def assign_sym
     @player1.symbol = :x
-    @player2.symbol = :y
+    @player2.symbol = :o
   end
 
   def make_move(player, position)
