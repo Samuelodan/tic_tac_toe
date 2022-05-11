@@ -90,10 +90,10 @@ class Game
     case board.winning_symbol
     when :x
       puts 'Player1 has won the game'
-      true
+      board.moves_left = false
     when :o
       puts 'Player2 has won the game'
-      true
+      board.moves_left = false
     else
       false
     end
