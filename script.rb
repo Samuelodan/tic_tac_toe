@@ -84,4 +84,17 @@ class Game
     @board.grid[position] = player.symbol
     true
   end
+
+  def check_winner
+    case board.winning_symbol
+    when :x
+      puts 'Player1 has won the game'
+      true
+    when :o
+      puts 'Player2 has won the game'
+      true
+    else
+      false
+    end
+  end
 end
