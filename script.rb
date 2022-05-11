@@ -74,6 +74,7 @@ class Game
   def assign_sym
     @player1.symbol = :x
     @player2.symbol = :o
+    puts "player1 is x\nplayer2 is o"
   end
 
   def make_move(player, position)
