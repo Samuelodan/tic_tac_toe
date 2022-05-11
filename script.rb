@@ -75,4 +75,8 @@ class Game
     @player1.symbol = :x
     @player2.symbol = :y
   end
+
+  def make_move(player, position)
+    @board.grid[position] = player.symbol
+  end
 end
