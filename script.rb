@@ -103,3 +103,13 @@ end
 game = Game.new
 puts 'This Tic Tac Toe session is starting now!'
 game.assign_sym
+
+def set_position
+  puts
+  position = gets.chomp.to_i
+  until (position.is_a? Numeric) && position.positive? && position < 10
+    puts 'please enter a valid number'
+    position = gets.chomp.to_i
+  end
+  position
+end
