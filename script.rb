@@ -63,12 +63,13 @@ end
 
 # creates game object that contains other objects
 class Game
-  attr_accessor :board, :player1, :player2
+  attr_accessor :board, :player1, :player2, :next_turn
 
   def initialize
     @board = Board.new
     @player1 = Players.new
     @player2 = Players.new
+    @next_turn = false
   end
 
   def assign_sym
@@ -83,7 +84,7 @@ class Game
       return false
     end
     @board.grid[position] = player.symbol
-    true
+    @next_turn = true
   end
 
   def check_winner
@@ -119,17 +120,23 @@ end
 game.board.display_grid # display board before before players make any move
 # player moves loop
 while game.board.moves_left
-  puts 'Player1: Enter a position between 1 and 9'
-  game.make_move(game.player1, set_position)
-  game.board.display_grid
-  game.board.check_moves_left
-  game.check_winner
+  game.next_turn = false
+  until game.next_turn
+    puts 'Player1: Enter a position between 1 and 9'
+    game.make_move(game.player1, set_position)
+    game.board.display_grid
+    game.board.check_moves_left
+    game.check_winner
+  end
 
   break unless game.board.moves_left
 
-  puts 'Player2: Enter a position between 1 and 9'
-  game.make_move(game.player2, set_position)
-  game.board.display_grid
-  game.board.check_moves_left
-  game.check_winner
+  game.next_turn = false
+  until game.next_turn
+    puts 'Player2: Enter a position between 1 and 9'
+    game.make_move(game.player2, set_position)
+    game.board.display_grid
+    game.board.check_moves_left
+    game.check_winner
+  end
 end
