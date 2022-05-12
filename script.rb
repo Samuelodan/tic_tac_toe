@@ -77,7 +77,8 @@ end
 
 # creates game object that contains other objects
 class Game
-  attr_accessor :board, :player1, :player2, :next_turn
+  attr_accessor :board
+  attr_reader :player1, :player2
 
   def initialize
     @board = Board.new
