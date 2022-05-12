@@ -113,3 +113,12 @@ def set_position
   end
   position
 end
+
+# player moves loop
+while game.board.moves_left
+  puts 'Player1: Enter a position between 1 and 9'
+  game.make_move(game.player1, set_position)
+
+  puts 'Player2: Enter a position between 1 and 9'
+  game.make_move(game.player2, set_position)
+end
