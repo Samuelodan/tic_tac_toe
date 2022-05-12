@@ -48,7 +48,10 @@ class Board
   end
 
   def check_moves_left
-    grid.value?(:_) || @moves_left = false
+    unless grid.value?(:_)
+      puts "No moves left!\nThe match has ended in a draw."
+      @moves_left = false
+    end
   end
 end
 
