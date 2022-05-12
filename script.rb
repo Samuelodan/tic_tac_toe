@@ -2,7 +2,8 @@
 
 # creates tic tac toe grids
 class Board
-  attr_accessor :moves_left, :grid
+  attr_accessor :next_turn, :moves_left
+  attr_reader :grid
 
   def initialize
     @grid = {
@@ -11,12 +12,22 @@ class Board
       7 => :_, 8 => :_, 9 => :_
     }
     @moves_left = true
+    @next_turn = false
   end
 
   def display_grid
     puts "  #{grid[1]} | #{grid[2]} | #{grid[3]} \n
   #{grid[4]} | #{grid[5]} | #{grid[6]} \n
   #{grid[7]} | #{grid[8]} | #{grid[9]}"
+  end
+
+  def make_move(player, position)
+    unless @grid[position] == :_ # changes here
+      puts 'That position is already taken'
+      return false
+    end
+    @grid[position] = player.symbol # changes here
+    @next_turn = true
   end
 
   def winning_symbol
@@ -72,22 +83,12 @@ class Game
     @board = Board.new
     @player1 = Players.new
     @player2 = Players.new
-    @next_turn = false
   end
 
   def assign_sym
     @player1.symbol = :x
     @player2.symbol = :o
     puts "player1 is x\nplayer2 is o"
-  end
-
-  def make_move(player, position)
-    unless @board.grid[position] == :_
-      puts 'That position is already taken'
-      return false
-    end
-    @board.grid[position] = player.symbol
-    @next_turn = true
   end
 
   def check_winner
@@ -123,10 +124,10 @@ end
 game.board.display_grid # display board before before players make any move
 # player moves loop
 while game.board.moves_left
-  game.next_turn = false
-  until game.next_turn
+  game.board.next_turn = false
+  until game.board.next_turn
     puts 'Player1: Enter a position between 1 and 9'
-    game.make_move(game.player1, set_position)
+    game.board.make_move(game.player1, set_position)
     game.board.display_grid
     game.board.check_moves_left
     game.check_winner
@@ -134,10 +135,10 @@ while game.board.moves_left
 
   break unless game.board.moves_left
 
-  game.next_turn = false
-  until game.next_turn
+  game.board.next_turn = false
+  until game.board.next_turn
     puts 'Player2: Enter a position between 1 and 9'
-    game.make_move(game.player2, set_position)
+    game.board.make_move(game.player2, set_position)
     game.board.display_grid
     game.board.check_moves_left
     game.check_winner
