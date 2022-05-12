@@ -99,3 +99,7 @@ class Game
     end
   end
 end
+
+game = Game.new
+puts 'This Tic Tac Toe session is starting now!'
+game.assign_sym
