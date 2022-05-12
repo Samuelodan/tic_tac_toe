@@ -100,10 +100,12 @@ class Game
   end
 end
 
+# now, for the game flow
 game = Game.new
 puts 'This Tic Tac Toe session is starting now!'
 game.assign_sym
 
+# this method accepts only valid input from players
 def set_position
   puts
   position = gets.chomp.to_i
