@@ -122,6 +122,8 @@ while game.board.moves_left
   game.board.check_moves_left
   game.check_winner
 
+  break unless game.board.moves_left
+
   puts 'Player2: Enter a position between 1 and 9'
   game.make_move(game.player2, set_position)
   game.board.display_grid
