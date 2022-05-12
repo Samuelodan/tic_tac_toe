@@ -116,6 +116,7 @@ def set_position
   position
 end
 
+game.board.display_grid # display board before before players make any move
 # player moves loop
 while game.board.moves_left
   puts 'Player1: Enter a position between 1 and 9'
