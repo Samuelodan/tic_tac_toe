@@ -22,11 +22,11 @@ class Board
   end
 
   def make_move(player, position)
-    unless @grid[position] == :_ # changes here
+    unless @grid[position] == :_
       puts 'That position is already taken'
       return false
     end
-    @grid[position] = player.symbol # changes here
+    @grid[position] = player.symbol
     @next_turn = true
   end
 
