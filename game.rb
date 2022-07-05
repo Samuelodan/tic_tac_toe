@@ -32,4 +32,14 @@ class Game
       false
     end
   end
+
+  def set_position
+    puts
+    position = gets.chomp.to_i
+    until (position.is_a? Integer) && position.positive? && position < 10
+      puts 'please enter a valid number'
+      position = gets.chomp.to_i
+    end
+    position
+  end
 end
