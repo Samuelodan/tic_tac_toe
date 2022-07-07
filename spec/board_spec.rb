@@ -5,8 +5,8 @@ require_relative '../lib/players'
 
 RSpec.describe Board do
   subject(:board) { described_class.new }
-  let(:xplayer) { instance_double(Players, symbol: :x) }
-  let(:yplayer) { instance_double(Players, symbol: :o) }
+  let(:xplayer) { double(Players, symbol: :x) }
+  let(:yplayer) { double(Players, symbol: :o) }
 
   describe '#make_move' do
     context 'when position is already taken' do
