@@ -62,5 +62,12 @@ RSpec.describe Board do
         expect(value).to be :o
       end
     end
+
+    context "When there's no winner" do
+      it 'returns nil' do
+        value = board.winning_symbol
+        expect(value).to be nil
+      end
+    end
   end
 end
