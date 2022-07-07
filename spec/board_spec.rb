@@ -24,5 +24,18 @@ RSpec.describe Board do
         expect(board.grid[position]).to_not be :x
       end
     end
+
+    context 'when position is available' do
+      position = 3
+      it 'does not puts a message' do
+        expect(board).to_not receive(:puts).with('That position is already taken')
+        board.make_move(xplayer, position)
+      end
+
+      it 'registers move' do
+        board.make_move(xplayer, position)
+        expect(board.grid[position]).to be :x
+      end
+    end
   end
 end
