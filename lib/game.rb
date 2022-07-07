@@ -15,8 +15,8 @@ class Game
   end
 
   def assign_sym
-    @player1.symbol = :x
-    @player2.symbol = :o
+    player1.set_symbol(:x)
+    player2.set_symbol(:o)
     puts "player1 is x\nplayer2 is o"
   end
 
