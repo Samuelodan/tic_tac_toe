@@ -53,7 +53,14 @@ RSpec.describe Board do
     end
 
     context 'when yplayer wins round' do
+      before do
+        board.grid[7], board.grid[8], board.grid[9] = :o, :o, :o
+      end
 
+      it 'returns :y' do
+        value = board.winning_symbol
+        expect(value).to be :o
+      end
     end
   end
 end
