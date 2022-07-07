@@ -24,7 +24,7 @@ class Board
   def make_move(player, position)
     unless @grid[position] == :_
       puts 'That position is already taken'
-      return false
+      return false #remember to delete this
     end
     @grid[position] = player.symbol
     @next_turn = true
@@ -63,5 +63,9 @@ class Board
       puts "No moves left!\nThe match has ended in a draw."
       @moves_left = false
     end
+  end
+
+  def reset_turn
+    @next_turn = false
   end
 end

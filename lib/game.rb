@@ -48,7 +48,7 @@ class Game
     assign_sym
     board.display_grid
     while board.moves_left
-      board.next_turn = false
+      board.reset_turn
       until board.next_turn
         puts 'Player1: Enter a position between 1 and 9'
         board.make_move(player1, set_position)
@@ -59,7 +59,7 @@ class Game
 
       break unless board.moves_left
 
-      board.next_turn = false
+      board.reset_turn
       until board.next_turn
         puts 'Player2: Enter a position between 1 and 9'
         board.make_move(player2, set_position)
