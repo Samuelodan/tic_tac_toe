@@ -110,4 +110,14 @@ RSpec.describe Board do
       expect { board.reset_turn }.to change { board.next_turn }.to false
     end
   end
+
+  describe '#no_moves_left' do
+    before do
+      board.instance_variable_set(:@moves_left, true)
+    end
+
+    it 'sets @moves_left to false' do
+      expect { board.no_moves_left }.to change { board.moves_left }.to false
+    end
+  end
 end
