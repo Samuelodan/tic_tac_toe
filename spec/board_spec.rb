@@ -89,5 +89,15 @@ RSpec.describe Board do
         expect { board.check_moves_left }.to change { board.moves_left }.to (false)
       end
     end
+    context 'when there are still moves left' do
+      it 'does not output an error message' do
+        expect(board).to_not receive(:puts)
+        board.check_moves_left
+      end
+
+      it 'does not change @moves_left' do
+        expect { board.check_moves_left }.to_not change { board.moves_left }
+      end
+    end
   end
 end
