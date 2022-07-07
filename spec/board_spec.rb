@@ -100,4 +100,14 @@ RSpec.describe Board do
       end
     end
   end
+
+  describe '#reset_turn' do
+    before do
+      board.instance_variable_set(:@next_turn, true)
+    end
+
+    it 'sets @next_turn to false' do
+      expect { board.reset_turn }.to change { board.next_turn }.to false
+    end
+  end
 end
