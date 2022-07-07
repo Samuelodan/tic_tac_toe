@@ -84,6 +84,10 @@ RSpec.describe Board do
         expect(board).to receive(:puts)
         board.check_moves_left
       end
+
+      it 'sets @moves_left to false' do
+        expect { board.check_moves_left }.to change { board.moves_left }.to (false)
+      end
     end
   end
 end
