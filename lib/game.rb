@@ -5,8 +5,7 @@ require_relative './players'
 
 # creates game object that contains other objects
 class Game
-  attr_accessor :board
-  attr_reader :player1, :player2
+  attr_reader :board, :player1, :player2
 
   def initialize
     @board = Board.new
