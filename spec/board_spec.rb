@@ -6,6 +6,7 @@ require_relative '../lib/players'
 RSpec.describe Board do
   subject(:board) { described_class.new }
   let(:xplayer) { instance_double(Players, symbol: :x) }
+  let(:yplayer) { instance_double(Players, symbol: :y) }
 
   describe '#make_move' do
     context 'when position is already taken' do
@@ -36,6 +37,23 @@ RSpec.describe Board do
         board.make_move(xplayer, position)
         expect(board.grid[position]).to be :x
       end
+    end
+  end
+
+  describe '#winning_symbol' do
+    context 'when xplayer wins round' do
+      before do
+        board.grid[7], board.grid[8], board.grid[9] = :x, :x, :x 
+      end
+
+      it 'returns :x' do
+        value = board.winning_symbol
+        expect(value).to be :x 
+      end
+    end
+
+    context 'when yplayer wins round' do
+
     end
   end
 end
