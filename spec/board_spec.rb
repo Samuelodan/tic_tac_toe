@@ -43,7 +43,7 @@ RSpec.describe Board do
   describe '#winning_symbol' do
     context 'when xplayer wins round' do
       before do
-        board.grid[7], board.grid[8], board.grid[9] = :x, :x, :x 
+        board.grid[7], board.grid[8], board.grid[9] = :x, :x, :x
       end
 
       it 'returns :x' do
@@ -67,6 +67,22 @@ RSpec.describe Board do
       it 'returns nil' do
         value = board.winning_symbol
         expect(value).to be nil
+      end
+    end
+  end
+
+  describe '#check_moves_left' do
+    context 'when there are no moves left' do
+      before do
+        allow(board).to receive(:puts)
+        board.grid[1], board.grid[2], board.grid[3] = :x, :x, :x
+        board.grid[4], board.grid[5], board.grid[6] = :y, :y, :y
+        board.grid[7], board.grid[8], board.grid[9] = :x, :x, :x
+      end
+
+      it 'outputs an error message' do
+        expect(board).to receive(:puts)
+        board.check_moves_left
       end
     end
   end
