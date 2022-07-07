@@ -24,12 +24,11 @@ class Game
     case board.winning_symbol
     when :x
       puts 'Player1 has won the game'
-      board.moves_left = false
+      board.no_moves_left
     when :o
       puts 'Player2 has won the game'
-      board.moves_left = false
+      board.no_moves_left
     else
-      false
     end
   end
 

@@ -2,8 +2,7 @@
 
 # creates tic tac toe grids
 class Board
-  attr_accessor :next_turn, :moves_left
-  attr_reader :grid
+  attr_reader :grid, :moves_left, :next_turn
 
   def initialize
     @grid = {
@@ -67,5 +66,9 @@ class Board
 
   def reset_turn
     @next_turn = false
+  end
+
+  def no_moves_left
+    @moves_left = false
   end
 end
