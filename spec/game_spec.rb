@@ -92,9 +92,9 @@ RSpec.describe Game do
     end
 
     context 'when player enters a valid position' do
+      valid_input = '9'
       before do
-        allow(game).to receive(:gets).and_return('9')
-        # allow(game).to receive(:puts)
+        allow(game).to receive(:gets).and_return(valid_input)
       end
 
       it 'does not output an error message' do
