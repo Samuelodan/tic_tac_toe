@@ -17,5 +17,11 @@ RSpec.describe Players do
         expect(player.symbol).to be :o
       end
     end
+
+    context 'when argument is not :x or :y' do
+      it 'does not set symbol to argument' do
+        expect { player.set_symbol(:y) }.to_not change { player.symbol }
+      end
+    end
   end
 end
