@@ -6,7 +6,7 @@ require_relative '../lib/players'
 RSpec.describe Board do
   subject(:board) { described_class.new }
   let(:xplayer) { double(Players, symbol: :x) }
-  let(:yplayer) { double(Players, symbol: :o) }
+  let(:oplayer) { double(Players, symbol: :o) }
 
   describe '#make_move' do
     context 'when position is already taken' do
@@ -52,12 +52,12 @@ RSpec.describe Board do
       end
     end
 
-    context 'when yplayer wins round' do
+    context 'when oplayer wins round' do
       before do
         board.grid[7], board.grid[8], board.grid[9] = :o, :o, :o
       end
 
-      it 'returns :y' do
+      it 'returns :o' do
         value = board.winning_symbol
         expect(value).to be :o
       end
@@ -76,7 +76,7 @@ RSpec.describe Board do
       before do
         allow(board).to receive(:puts)
         board.grid[1], board.grid[2], board.grid[3] = :x, :x, :x
-        board.grid[4], board.grid[5], board.grid[6] = :y, :y, :y
+        board.grid[4], board.grid[5], board.grid[6] = :o, :o, :o
         board.grid[7], board.grid[8], board.grid[9] = :x, :x, :x
       end
 
