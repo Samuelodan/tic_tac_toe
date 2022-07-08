@@ -36,10 +36,15 @@ RSpec.describe Game do
         allow(board).to receive(:no_moves_left)
       end
 
-      it 'it outputs victory message' do
+      it 'outputs victory message' do
         expect(game).to receive(:puts)
         game.check_winner
       end
-    end
+
+      it 'sends message to board' do
+        expect(board).to receive(:no_moves_left)
+        game.check_winner
+      end
+    end    
   end
 end
