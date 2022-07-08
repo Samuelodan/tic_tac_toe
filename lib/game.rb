@@ -33,8 +33,7 @@ class Game
     end
   end
 
-  def set_position
-    puts
+  def get_position
     position = gets.chomp.to_i
     until (position.is_a? Integer) && position.positive? && position < 10
       puts 'please enter a valid number'
@@ -51,7 +50,7 @@ class Game
       board.reset_turn
       until board.next_turn
         puts 'Player1: Enter a position between 1 and 9'
-        board.make_move(player1, set_position)
+        board.make_move(player1, get_position)
         board.display_grid
         board.check_moves_left
         check_winner
@@ -62,7 +61,7 @@ class Game
       board.reset_turn
       until board.next_turn
         puts 'Player2: Enter a position between 1 and 9'
-        board.make_move(player2, set_position)
+        board.make_move(player2, get_position)
         board.display_grid
         board.check_moves_left
         check_winner
