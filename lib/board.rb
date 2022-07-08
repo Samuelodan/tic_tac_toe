@@ -20,9 +20,13 @@ class Board
   ].freeze
 
   def display_grid
-    puts "  #{grid[1]} | #{grid[2]} | #{grid[3]} \n
-  #{grid[4]} | #{grid[5]} | #{grid[6]} \n
-  #{grid[7]} | #{grid[8]} | #{grid[9]}"
+    puts <<~HEREDOC
+       #{grid[1]} | #{grid[2]} | #{grid[3]}
+       ——+———+——
+       #{grid[4]} | #{grid[5]} | #{grid[6]}
+       ——+———+——    
+       #{grid[7]} | #{grid[8]} | #{grid[9]}
+    HEREDOC
   end
 
   def make_move(player, position)
