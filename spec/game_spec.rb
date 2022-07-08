@@ -65,4 +65,18 @@ RSpec.describe Game do
       end
     end
   end
+
+  describe '#set_position' do
+    context 'when player enters an invalid position followed by valid' do
+      before do
+        allow(game).to receive(:gets).and_return('12', '9')
+        allow(game).to receive(:puts)
+      end
+
+      it 'outputs an error message once' do
+        expect(game).to receive(:puts).with('please enter a valid number').once
+        game.set_position
+      end
+    end
+  end
 end
