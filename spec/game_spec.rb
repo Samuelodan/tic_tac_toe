@@ -27,4 +27,19 @@ RSpec.describe Game do
       game.assign_sym
     end
   end
+
+  describe '#check_winner' do
+    context 'when winning symbol is :x' do
+      before do
+        allow(board).to receive(:winning_symbol).and_return(:x)
+        allow(game).to receive(:puts)
+        allow(board).to receive(:no_moves_left)
+      end
+
+      it 'it outputs victory message' do
+        expect(game).to receive(:puts)
+        game.check_winner
+      end
+    end
+  end
 end
