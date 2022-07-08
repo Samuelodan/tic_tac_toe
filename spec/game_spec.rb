@@ -78,5 +78,29 @@ RSpec.describe Game do
         game.get_position
       end
     end
+
+    context 'when player enters an invalid position twice followed by valid' do
+      before do
+        allow(game).to receive(:gets).and_return('12', '21', '9')
+        allow(game).to receive(:puts)
+      end
+
+      it 'outputs an error message twice' do
+        expect(game).to receive(:puts).with('please enter a valid number').twice
+        game.get_position
+      end
+    end
+
+    context 'when player enters a valid position' do
+      before do
+        allow(game).to receive(:gets).and_return('9')
+        # allow(game).to receive(:puts)
+      end
+
+      it 'does not output an error message' do
+        expect(game).to_not receive(:puts).with('please enter a valid number')
+        game.get_position
+      end
+    end
   end
 end
