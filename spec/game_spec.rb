@@ -108,4 +108,10 @@ RSpec.describe Game do
       end
     end
   end
+
+  # I believe these tests should be more integration vs unit
+  describe '#play' do
+    # so, I'll just leave this blank for now since I've tested
+    # the critical methods contained within it
+  end
 end
