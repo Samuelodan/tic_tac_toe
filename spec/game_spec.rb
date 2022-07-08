@@ -101,6 +101,11 @@ RSpec.describe Game do
         expect(game).to_not receive(:puts).with('please enter a valid number')
         game.get_position
       end
+
+      it 'returns position as integer of valid input' do
+        position = game.get_position
+        expect(position).to be valid_input.to_i
+      end
     end
   end
 end
