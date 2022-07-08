@@ -7,10 +7,12 @@ require_relative './players'
 class Game
   attr_reader :board, :player1, :player2
 
-  def initialize
-    @board = Board.new
-    @player1 = Players.new
-    @player2 = Players.new
+  def initialize(board: Board.new,
+                 player1: Players.new,
+                 player2: Players.new)
+    @board = board
+    @player1 = player1
+    @player2 = player2
   end
 
   def assign_sym
