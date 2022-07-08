@@ -45,6 +45,24 @@ RSpec.describe Game do
         expect(board).to receive(:no_moves_left)
         game.check_winner
       end
-    end    
+    end
+    
+    context 'when winning symbol is :o' do
+      before do
+        allow(board).to receive(:winning_symbol).and_return(:o)
+        allow(game).to receive(:puts)
+        allow(board).to receive(:no_moves_left)
+      end
+
+      it 'outputs victory message' do
+        expect(game).to receive(:puts)
+        game.check_winner
+      end
+
+      it 'sends message to board' do
+        expect(board).to receive(:no_moves_left)
+        game.check_winner
+      end
+    end
   end
 end
